@@ -1,0 +1,16 @@
+
+
+.cart-container{
+  background-color: rgba(255, 153, 0, 0.3);
+  
+  position: sticky
+  ;
+  top: 0;
+    padding: 20px;
+    
+}
+.Order-summary{
+  margin-top: 30px;
+    font-size: 25px;
+ 
+ }

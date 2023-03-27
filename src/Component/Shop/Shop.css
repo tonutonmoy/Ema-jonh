@@ -3,8 +3,8 @@
     display: grid;
 
     grid-template-columns:  4fr 1fr;
-    width: 90%;
-    margin: auto;
+    
+    margin-left: 5%;
    
 }
 
@@ -15,3 +15,4 @@
 
 
 }
+
