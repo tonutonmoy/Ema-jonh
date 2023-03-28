@@ -9,7 +9,7 @@ import './Product.css'
 
 const Product = (props) => {
 
-    // console.log(props)
+    // console.log(props.data)
 
     let {price,ratings,name,img,seller}=props.data;
 
