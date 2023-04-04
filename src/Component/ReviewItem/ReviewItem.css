@@ -1,0 +1,83 @@
+.review-item{
+width: 571px;
+height: 130px;
+    border: 1px solid black;
+    border-radius: 8px;
+      margin-bottom: 25px;
+   
+      
+
+
+}
+
+.review-item-img{
+   width: 100px;
+   height: 100px;
+   border-radius: 8px;
+}
+
+.container-img-detail{
+  display: flex;
+  align-items: center;
+ padding: 10px;
+ gap: 17px;
+    
+}
+
+.review-item-title{
+    font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 21px;
+padding: 0;
+margin: 0;
+
+
+
+color: #1C2B35;
+}
+
+.review-item-p{
+    font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+margin-top: 8px;
+margin-bottom: 0;
+
+/* identical to box height */
+
+
+
+color: #2A414F;
+
+}
+
+.review-item-span{
+    color: #FF9900;
+}
+
+.delete-button-container{
+   
+    align-items: center;
+    display: flex;
+
+    justify-content: center;
+
+  
+}
+
+.button-delete{
+    background-color: #eb57574f;
+   color: #EB5757;
+  
+   
+    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    border: none;
+}
+
+.delete-icon{
+    font-size: 25px;
+}
