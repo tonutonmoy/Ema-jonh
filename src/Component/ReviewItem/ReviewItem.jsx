@@ -4,11 +4,13 @@ import { faCoffee,faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import './ReviewItem.css'
 
-const ReviewItem = ({product}) => {
+const ReviewItem = ({product,deleteButton}) => {
 
-    let {img,name,price,shipping}=product;
+    let {img,name,price,shipping,quantity,id}=product;
 
-    console.log(product)
+
+   
+    
     return (
         <div className='review-item row'>
             <div className='container-img-detail col-10'>
@@ -17,14 +19,14 @@ const ReviewItem = ({product}) => {
                     <h6 className=' review-item-title'>{name}</h6>
 
                     <p className='review-item-p'>Price: <span className='review-item-span'>${price}</span> </p>
-                    <p className='review-item-p'>ShippingCharge: <span className='review-item-span'>${shipping}</span></p>
+                    <p className='review-item-p'>ShippingCharge: <span className='review-item-span'>{quantity}</span></p>
                 </div>
             </div>
 
 
             <div className='delete-button-container col-2' >
              
-              <button className='button-delete'>
+              <button onClick={()=> deleteButton(id)} className='button-delete'>
                 <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon>
               </button>
             </div>

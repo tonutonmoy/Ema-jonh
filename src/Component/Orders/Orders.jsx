@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
 import { useLoaderData } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Order.css'
+import { removeFromDb } from '../utilities/fakedb';
 
 const Orders = () => {
 
-    const cart= useLoaderData()
+   let cart= useLoaderData()
 
+    let [newCart,seNewCart]=useState(cart);
+
+    const deleteButton=(id)=>{
+
+
+        let filter= newCart.filter(a=> a.id !== id) 
+
+        seNewCart(filter)
+        console.log(filter)
+
+        removeFromDb(id)
+
+
+        
+
+    }
+
+   
 
 
   
@@ -16,7 +35,7 @@ const Orders = () => {
 
             <div className='review-container'>
              
-             { cart.map(a=> <ReviewItem product={a} key={a.id}> </ReviewItem>)}
+             { newCart.map(a=> <ReviewItem product={a} key={a.id} deleteButton={deleteButton}> </ReviewItem>)}
                 
             </div>
 
