@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import './Cart.css'
 
 
 
-const Cart = ({cart}) => {
+const Cart = ({cart,clearCart,children}) => {
 
 
 
@@ -60,6 +62,15 @@ const Cart = ({cart}) => {
           <p>Tax: {tax.toFixed(2)} </p>
 
           <h3>Grand Total: {grandTotal.toFixed(2)} </h3>
+
+          <button onClick={clearCart} className=' mt-3 btn btn-danger d-flex align-items-center gap-3 w-100 justify-content-center
+'> 
+             <span>Clear cart</span>
+             <FontAwesomeIcon icon={faCoffee} ></FontAwesomeIcon>
+             </button>
+
+          {children}
+             
         </div>
     );
 };

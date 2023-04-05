@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import Cart from '../Cart/Cart';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Order.css'
-import { removeFromDb } from '../utilities/fakedb';
+import { deleteShoppingCart, removeFromDb } from '../utilities/fakedb';
 
 const Orders = () => {
 
-   let cart= useLoaderData()
+   let oldCart= useLoaderData()
 
-    let [newCart,seNewCart]=useState(cart);
+    let [cart,setCart]=useState(oldCart);
 
     const deleteButton=(id)=>{
 
 
-        let filter= newCart.filter(a=> a.id !== id) 
+        let filter= cart.filter(a=> a.id !== id) 
 
-        seNewCart(filter)
+        setCart(filter)
         console.log(filter)
 
         removeFromDb(id)
@@ -27,7 +27,13 @@ const Orders = () => {
     }
 
    
+    const clearCart=()=>{
 
+        setCart([])
+
+        deleteShoppingCart()
+         
+    }
 
   
     return (
@@ -35,12 +41,20 @@ const Orders = () => {
 
             <div className='review-container'>
              
-             { newCart.map(a=> <ReviewItem product={a} key={a.id} deleteButton={deleteButton}> </ReviewItem>)}
+             { cart.map(a=> <ReviewItem product={a} key={a.id} deleteButton={deleteButton}> </ReviewItem>)}
                 
             </div>
 
             <div className=''>
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart} clearCart={clearCart}>
+
+                <Link to='/checkOut'>
+
+                    <button className='mt-3 btn btn-primary d-flex align-items-center gap-3 w-100 justify-content-center'> CheckOut</button>
+                  </Link>
+
+
+                </Cart>
             </div>
             
         </div>

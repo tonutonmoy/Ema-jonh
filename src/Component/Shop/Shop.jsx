@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
-import { addToDb, getShoppingCart } from '../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../utilities/fakedb';
 
 
 import './Shop.css'
+import { Link } from 'react-router-dom';
 const Shop = () => {
 
 
@@ -78,7 +79,14 @@ console.log(exists)
        addToDb(product.id)
         }
        
+        const clearCart=()=>{
 
+          setCart([])
+  
+          deleteShoppingCart()
+           
+      }
+  
    
 
     return (
@@ -94,7 +102,14 @@ console.log(exists)
             <div >
                 
 
-                 <Cart cart={cart} ></Cart>
+                 <Cart clearCart={clearCart} cart={cart} >
+
+                 <Link to='/orders'>
+
+                    <button className='mt-3 btn btn-primary d-flex align-items-center gap-3 w-100 justify-content-center'> Review Order</button>
+                  </Link>
+
+                 </Cart>
             </div>
             
         </div>
