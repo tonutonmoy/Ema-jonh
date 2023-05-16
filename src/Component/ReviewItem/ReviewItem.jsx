@@ -6,7 +6,7 @@ import './ReviewItem.css'
 
 const ReviewItem = ({product,deleteButton}) => {
 
-    let {img,name,price,shipping,quantity,id}=product;
+    let {img,name,price,shipping,quantity,_id}=product;
 
 
    
@@ -26,7 +26,7 @@ const ReviewItem = ({product,deleteButton}) => {
 
             <div className='delete-button-container col-2' >
              
-              <button onClick={()=> deleteButton(id)} className='button-delete'>
+              <button onClick={()=> deleteButton(_id)} className='button-delete'>
                 <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon>
               </button>
             </div>

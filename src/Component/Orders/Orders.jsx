@@ -14,7 +14,7 @@ const Orders = () => {
     const deleteButton=(id)=>{
 
 
-        let filter= cart.filter(a=> a.id !== id) 
+        let filter= cart.filter(a=> a._id !== id) 
 
         setCart(filter)
         console.log(filter)
@@ -41,7 +41,7 @@ const Orders = () => {
 
             <div className='review-container'>
              
-             { cart.map(a=> <ReviewItem product={a} key={a.id} deleteButton={deleteButton}> </ReviewItem>)}
+             { cart.map(a=> <ReviewItem product={a} key={a._id} deleteButton={deleteButton}> </ReviewItem>)}
                 
             </div>
 
